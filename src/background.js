@@ -4,13 +4,14 @@ import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import setTray from '@/assets/js/electron/setTray'
+import setVueEventMonitor from '@/assets/js/electron/setVueEventMonitor'
 const path = require('path');
-
-
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const initWidth = 1200
 const initHeight = 750
+
+
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -23,18 +24,19 @@ async function createWindow() {
   const win = new BrowserWindow({
     minWidth: initWidth,
     minHeight: initHeight,
-    width:initWidth,
-    height:initHeight,
-    center : true,
+    width: initWidth,
+    height: initHeight,
+    center: true,
     icon: path.join(__static, './img/Keep.png'),
     //去除标题栏
-    frame: false ,
+    frame: false,
     webPreferences: {
-      
+
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
+      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
@@ -43,19 +45,22 @@ async function createWindow() {
     await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
 
     // 设置是否打开谷歌调试工具
-    // if (!process.env.IS_TEST) win.webContents.openDevTools()
+    if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
 
- 
+
 
   // 设置系统右下角托盘
-  setTray(app,win)
+  setTray(app, win)
 
- 
+  // 监听Vue进程发送的信息
+  setVueEventMonitor(app,win)
+
+
 }
 
 // Quit when all windows are closed.
@@ -86,6 +91,9 @@ app.on('ready', async () => {
   //   }
   // }
   createWindow()
+    .then(_ => {
+    }
+    )
 })
 
 // Exit cleanly on request from parent process in development mode.

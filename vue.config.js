@@ -6,6 +6,7 @@ module.exports = defineConfig({
   lintOnSave: false,
   pluginOptions: {
     electronBuilder: {
+      preload: 'src/preload.js',
       builderOptions: {
         "appId": "com.may.app",
         "productName": "vue-electron-project",//项目名，也是生成的安装文件名，即aDemo.exe
@@ -15,6 +16,6 @@ module.exports = defineConfig({
         // options placed here will be merged with default configuration and passed to electron-builder
       }
     }
-  }
+  },
 })
 
