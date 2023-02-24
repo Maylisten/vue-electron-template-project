@@ -1,24 +1,34 @@
-# vue-electron-study-project
-
-## Project setup
+## 初始化
 ```
-npm install
+npm i
 ```
 
-### Compiles and hot-reloads for development
+## 命令
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+// 打包
+npm run electron:build
+// 调试
+npm run electron:serve
 ```
 
-### Lints and fixes files
+## 备注
+### build出现下载错误提示时，在配置中添加镜像地址
 ```
-npm run lint
-```
+// npm config edit
+electron_mirror=https://npm.taobao.org/mirrors/electron/
+electron-builder-binaries_mirror=https://npm.taobao.org/mirrors/electron-builder-binaries/
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+```
+---
+
+### vscode提示jsconfig.json
+```
+ "vueCompilerOptions": {
+    "target": 2.7
+  }
+```
+---
+### 静态文件打包时会压缩，使用__static来拼接静态文件路径
+
+

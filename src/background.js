@@ -9,6 +9,8 @@ const path = require('path');
 
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
+const initWidth = 1200
+const initHeight = 750
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
@@ -19,13 +21,14 @@ async function createWindow() {
 
   // Create the browser window.
   const win = new BrowserWindow({
-    minWidth: 1300,
-    minHeight: 850,
-    width:1300,
-    height:850,
+    minWidth: initWidth,
+    minHeight: initHeight,
+    width:initWidth,
+    height:initHeight,
     center : true,
     icon: path.join(__static, './img/Keep.png'),
-    // frame: false ,
+    //去除标题栏
+    frame: false ,
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
