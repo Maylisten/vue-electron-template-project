@@ -1,0 +1,37 @@
+{
+  "id": "3916193",
+  "name": "electron",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5772883",
+      "name": "叉号",
+      "font_class": "close",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "18171226",
+      "name": "复制,重复,重叠",
+      "font_class": "zoom-out",
+      "unicode": "ea30",
+      "unicode_decimal": 59952
+    },
+    {
+      "icon_id": "7594407",
+      "name": "24gl-square",
+      "font_class": "zoom-in",
+      "unicode": "ea98",
+      "unicode_decimal": 60056
+    },
+    {
+      "icon_id": "34086190",
+      "name": "minus-outlined",
+      "font_class": "hide",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    }
+  ]
+}
