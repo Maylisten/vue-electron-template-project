@@ -8,4 +8,12 @@ export default (app,win)=>{
     ipcMain.on('minimize-window',_=>{
         win.minimize()
     })
+
+    ipcMain.on('hide-window',_=>{
+        win.hide()
+    })
+
+    ipcMain.handle('window-isMaximized', ()=>{
+
+    })
 }

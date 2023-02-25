@@ -7,5 +7,13 @@ contextBridge.exposeInMainWorld('ElectronAPI',{
 
     minimizeWindow: ()=>{
         ipcRenderer.send('minimize-window')
+    },
+
+    hideWindow: ()=>{
+        ipcRenderer.send('hide-window')
+    },
+
+    isMaximized:()=>{
+        ipcRenderer.send('window-isMaximized')
     }
 })
