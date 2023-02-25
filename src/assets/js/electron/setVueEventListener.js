@@ -14,6 +14,14 @@ export default (app,win)=>{
     })
 
     ipcMain.handle('window-isMaximized', ()=>{
+        return win.isMaximized()
+    })
 
+    ipcMain.on('maximize-window',_=>{
+        win.maximize()
+    })
+
+    ipcMain.on('restore-window',_=>{
+        win.restore()
     })
 }

@@ -11,7 +11,7 @@ module.exports = defineConfig({
         "appId": "com.may.app",
         "productName": "vue-electron-project",//项目名，也是生成的安装文件名，即aDemo.exe
         "win": {
-            "icon": "./public/img/Keep.ico"//这里注意配好图标路径
+            "icon": "./public/img/logo.ico"//这里注意配好图标路径
         }
         // options placed here will be merged with default configuration and passed to electron-builder
       }
