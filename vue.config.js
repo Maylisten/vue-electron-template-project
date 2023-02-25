@@ -6,6 +6,7 @@ module.exports = defineConfig({
   lintOnSave: false,
   pluginOptions: {
     electronBuilder: {
+      customFileProtocol: './',
       preload: 'src/preload.js',
       builderOptions: {
         "appId": "com.may.app",

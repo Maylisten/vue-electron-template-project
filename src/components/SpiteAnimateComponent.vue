@@ -5,8 +5,14 @@
 </template>
 
 <script>
+import spiteImg from '@/assets/img/spite_img.png'
 export default {
     name: 'SpiteAnimateComponent',
+    data() {
+        return {
+            spiteImg:spiteImg
+        }
+    },
 
 }
 </script>
@@ -22,7 +28,7 @@ export default {
     .show_box {
         height: 271px;
         width: 132px;
-        background-image: url(@/assets/img/spite_img.png);
+        background-image: url('@/assets/img/spite_img.png');
         animation: walk 0.8s steps(4) infinite;
     }
 
