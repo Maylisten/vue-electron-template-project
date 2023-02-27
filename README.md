@@ -20,15 +20,4 @@ electron-builder-binaries_mirror=https://npm.taobao.org/mirrors/electron-builder
 
 
 ```
----
-
-### vscode提示jsconfig.json
-```
- "vueCompilerOptions": {
-    "target": 2.7
-  }
-```
----
 ### 静态文件打包时会压缩，使用__static来拼接静态文件路径
-
-
