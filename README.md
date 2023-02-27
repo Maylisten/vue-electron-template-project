@@ -21,3 +21,9 @@ electron-builder-binaries_mirror=https://npm.taobao.org/mirrors/electron-builder
 
 ```
 ### 静态文件打包时会压缩，使用__static来拼接静态文件路径
+
+## 效果展示
+
+![](public/img/show.png)'
+
+

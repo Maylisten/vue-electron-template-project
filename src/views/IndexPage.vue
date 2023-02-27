@@ -3,7 +3,9 @@
         <div class="header_panel">
             <header-bar-component></header-bar-component>
         </div>
-        <div class="main_panel"></div>
+        <div class="main_panel">
+            <spite-animate-component></spite-animate-component>
+        </div>
     </div>
 </template>
 
@@ -11,16 +13,14 @@
 import '@/assets/iconfont/iconfont.css'
 import '@/assets/iconfont/iconfont.js'
 import HeaderBarComponent from '@/components/HeaderBarComponent.vue'
+import SpiteAnimateComponent from '@/components/SpiteAnimateComponent.vue'
 
 export default {
     name: 'IndexPage',
     components: {
         HeaderBarComponent,
-    },
-
-   
-
-
+        SpiteAnimateComponent
+    }
 }
 </script>
 
@@ -29,7 +29,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     width: 100%;
 

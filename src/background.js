@@ -3,13 +3,18 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
-import setTray from '@/assets/js/electron/setTray'
-import setVueEventMonitor from '@/assets/js/electron/setVueEventMonitor'
 const path = require('path');
 
+import setTray from '@/assets/js/electron/setTray'
+import setVueEventListener from '@/assets/js/electron/setVueEventListener'
+import setWinEventListener from '@/assets/js/electron/setWinEventListener'
+
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
-const initWidth = 1200
-const initHeight = 750
+// const initWidth = 1200
+// const initHeight = 750
+const initWidth = 800
+const initHeight = 600
 
 
 
@@ -27,7 +32,7 @@ async function createWindow() {
     width: initWidth,
     height: initHeight,
     center: true,
-    icon: path.join(__static, './img/Keep.png'),
+    icon: path.join(__static, './img/logo.png'),
     //去除标题栏
     frame: false,
     webPreferences: {
@@ -58,9 +63,10 @@ async function createWindow() {
   setTray(app, win)
 
   // 监听Vue进程发送的信息
-  setVueEventMonitor(app,win)
+  setVueEventListener(app,win)
 
-
+  // 监听Win发出的事件
+  setWinEventListener(app,win)
 }
 
 // Quit when all windows are closed.
@@ -91,9 +97,6 @@ app.on('ready', async () => {
   //   }
   // }
   createWindow()
-    .then(_ => {
-    }
-    )
 })
 
 // Exit cleanly on request from parent process in development mode.
